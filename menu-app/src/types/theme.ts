@@ -20,6 +20,8 @@ export type RestaurantTheme = {
 export type LogoThemeResponse = {
   logoComplete: boolean
   logoUrl: string
+  /** Optional original CDN asset before display recolor */
+  originalLogoUrl?: string
   uploadStatus: string
   palette: BrandPalette
   theme: RestaurantTheme

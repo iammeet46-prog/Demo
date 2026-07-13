@@ -9,14 +9,7 @@ type MenuScreenProps = {
   categories: MenuCategory[]
 }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 18 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] as const },
-  }),
-}
+const ease = [0.22, 1, 0.36, 1] as const
 
 export function MenuScreen({
   themeData,
@@ -36,6 +29,8 @@ export function MenuScreen({
     '--menu-deep': deepShade,
   } as CSSProperties
 
+  let staggerIndex = 0
+
   return (
     <div className="menu-screen" style={cssVars}>
       <div className="menu-screen__atmosphere" aria-hidden="true" />
@@ -47,14 +42,16 @@ export function MenuScreen({
           alt={`${restaurantName} logo`}
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease }}
         />
+        <motion.h1 className="menu-hero__brand visually-hidden">
+          {restaurantName}
+        </motion.h1>
         <motion.p
           className="menu-hero__tagline"
-          custom={0.2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.2, ease }}
         >
           Seasonally inspired · Open kitchen grill
         </motion.p>
@@ -62,12 +59,12 @@ export function MenuScreen({
           className="menu-hero__rule"
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.35, ease }}
         />
       </header>
 
       <main className="menu-body">
-        {categories.map((category, categoryIndex) => (
+        {categories.map((category) => (
           <section
             key={category.id}
             className="menu-section"
@@ -76,39 +73,42 @@ export function MenuScreen({
             <motion.h2
               id={`category-${category.id}`}
               className="menu-section__title"
-              custom={0.15 + categoryIndex * 0.05}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-40px' }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.25 + staggerIndex++ * 0.04,
+                ease,
+              }}
             >
               {category.title}
             </motion.h2>
 
             <ul className="menu-list">
-              {category.items.map((item, itemIndex) => (
-                <motion.li
-                  key={item.id}
-                  className="menu-item"
-                  custom={0.2 + categoryIndex * 0.04 + itemIndex * 0.06}
-                  variants={fadeUp}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: '-20px' }}
-                >
-                  <div className="menu-item__row">
-                    <h3 className="menu-item__name">{item.name}</h3>
-                    <span className="menu-item__dots" aria-hidden="true" />
-                    <span className="menu-item__price">{item.price}</span>
-                  </div>
-                  <p className="menu-item__description">{item.description}</p>
-                  {item.allergens && item.allergens.length > 0 && (
-                    <p className="menu-item__allergens">
-                      Contains: {item.allergens.join(' · ')}
-                    </p>
-                  )}
-                </motion.li>
-              ))}
+              {category.items.map((item) => {
+                const delay = 0.3 + staggerIndex++ * 0.05
+                return (
+                  <motion.li
+                    key={item.id}
+                    className="menu-item"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay, ease }}
+                  >
+                    <div className="menu-item__row">
+                      <h3 className="menu-item__name">{item.name}</h3>
+                      <span className="menu-item__dots" aria-hidden="true" />
+                      <span className="menu-item__price">{item.price}</span>
+                    </div>
+                    <p className="menu-item__description">{item.description}</p>
+                    {item.allergens && item.allergens.length > 0 && (
+                      <p className="menu-item__allergens">
+                        Contains: {item.allergens.join(' · ')}
+                      </p>
+                    )}
+                  </motion.li>
+                )
+              })}
             </ul>
           </section>
         ))}

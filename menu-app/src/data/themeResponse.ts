@@ -3,7 +3,10 @@ import type { LogoThemeResponse } from '../types/theme'
 /** Theme payload returned after logo upload + palette extraction */
 export const themeResponse: LogoThemeResponse = {
   logoComplete: true,
-  logoUrl:
+  /** Display asset: CDN logo recolored for dark menu backgrounds */
+  logoUrl: '/logo.png',
+  /** Original uploaded logo from the API */
+  originalLogoUrl:
     'https://allergeninfo.lon1.cdn.digitaloceanspaces.com/restaurants/4/logo.png',
   uploadStatus: 'uploaded',
   palette: {
