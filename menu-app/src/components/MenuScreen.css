@@ -1,0 +1,345 @@
+.menu-app {
+  --menu-bg: #1f3822;
+  --menu-item: #ffffff;
+  --menu-ingredient: #e0e0e0;
+  --menu-accent: #1f3822;
+  --menu-canopy: #24462f;
+  --menu-deep: #193a1d;
+  --menu-highlight: #9fbf9a;
+  --menu-card: #24462f;
+  --menu-suitable-bg: color-mix(in srgb, #7dba78 22%, transparent);
+  --menu-suitable-fg: #b7e0b2;
+  --menu-unsuitable-bg: color-mix(in srgb, #d96a6a 20%, transparent);
+  --menu-unsuitable-fg: #f0a8a8;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -20%, color-mix(in srgb, var(--menu-canopy) 80%, #3d6b4a), transparent 55%),
+    linear-gradient(180deg, var(--menu-canopy) 0%, var(--menu-bg) 40%, var(--menu-deep) 100%);
+  color: var(--menu-item);
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+
+.menu-app__shell {
+  width: min(480px, 100%);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 1.1rem 1rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.menu-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.menu-brand__logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.menu-brand__copy {
+  min-width: 0;
+}
+
+.menu-brand__name {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--menu-item);
+}
+
+.menu-brand__tagline {
+  margin: 0.15rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--menu-ingredient);
+}
+
+.allergy-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--menu-highlight);
+  background: color-mix(in srgb, var(--menu-deep) 55%, transparent);
+  color: var(--menu-highlight);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.allergy-filter-btn.is-open,
+.allergy-filter-btn.has-filters {
+  background: color-mix(in srgb, var(--menu-highlight) 18%, transparent);
+}
+
+.allergy-filter-btn__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  padding: 0 0.25rem;
+  border-radius: 999px;
+  background: var(--menu-highlight);
+  color: var(--menu-deep);
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.allergy-panel {
+  overflow: hidden;
+}
+
+.allergy-panel__inner {
+  padding: 0.85rem 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid color-mix(in srgb, var(--menu-highlight) 28%, transparent);
+  background: color-mix(in srgb, var(--menu-deep) 70%, transparent);
+}
+
+.allergy-panel__label {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--menu-ingredient);
+}
+
+.allergy-panel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.allergy-chip {
+  border: 1px solid color-mix(in srgb, var(--menu-ingredient) 35%, transparent);
+  background: transparent;
+  color: var(--menu-ingredient);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.allergy-chip.is-active {
+  background: color-mix(in srgb, var(--menu-highlight) 22%, transparent);
+  border-color: var(--menu-highlight);
+  color: var(--menu-item);
+}
+
+.allergy-panel__clear {
+  margin-top: 0.7rem;
+  border: 0;
+  background: none;
+  color: var(--menu-highlight);
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.menu-search {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--menu-item) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--menu-ingredient) 22%, transparent);
+  color: var(--menu-ingredient);
+}
+
+.menu-search input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--menu-item);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.menu-search input::placeholder {
+  color: color-mix(in srgb, var(--menu-ingredient) 75%, transparent);
+}
+
+.menu-tabs-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.menu-tabs-row__filter {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0.55rem;
+  background: transparent;
+  color: var(--menu-highlight);
+  cursor: pointer;
+}
+
+.menu-tabs {
+  display: flex;
+  gap: 0.15rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  min-width: 0;
+  padding-bottom: 0.15rem;
+}
+
+.menu-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-tab {
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: color-mix(in srgb, var(--menu-ingredient) 80%, transparent);
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 0.55rem 0.7rem 0.65rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.menu-tab.is-active {
+  color: var(--menu-highlight);
+}
+
+.menu-tab.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0.55rem;
+  right: 0.55rem;
+  bottom: 0;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--menu-highlight);
+}
+
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.menu-content__title {
+  margin: 0.15rem 0 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--menu-highlight);
+}
+
+.menu-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.menu-card {
+  padding: 0.95rem 1rem;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--menu-item) 6%, var(--menu-canopy));
+  border: 1px solid color-mix(in srgb, var(--menu-ingredient) 16%, transparent);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+}
+
+.menu-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.menu-card__name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--menu-item);
+}
+
+.suitability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  flex-shrink: 0;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.suitability-badge.is-suitable {
+  background: var(--menu-suitable-bg);
+  color: var(--menu-suitable-fg);
+}
+
+.suitability-badge.is-unsuitable {
+  background: var(--menu-unsuitable-bg);
+  color: var(--menu-unsuitable-fg);
+}
+
+.menu-card__ingredients {
+  margin: 0.55rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--menu-ingredient);
+}
+
+.menu-card__ingredients-label {
+  color: color-mix(in srgb, var(--menu-ingredient) 85%, var(--menu-item));
+}
+
+.menu-empty {
+  margin: 1.5rem 0 0;
+  text-align: center;
+  color: var(--menu-ingredient);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 720px) {
+  .menu-app__shell {
+    width: min(560px, 100%);
+    padding-top: 1.75rem;
+  }
+}
