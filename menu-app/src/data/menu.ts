@@ -1,65 +1,115 @@
 import type { MenuCategory } from '../types/theme'
 
 export const restaurantName = 'The Foresters'
+export const restaurantTagline = 'Open kitchen grill'
 
 export const menuCategories: MenuCategory[] = [
   {
     id: 'starters',
-    title: 'Starters',
+    title: 'Starter & Bites',
     items: [
       {
         id: 's1',
         name: 'Woodland Mushroom Soup',
-        description: 'Wild mushrooms, thyme cream, toasted sourdough',
+        ingredients: ['Wild mushrooms', 'Thyme cream', 'Toasted sourdough'],
         price: '£8.50',
         allergens: ['Gluten', 'Milk'],
       },
       {
         id: 's2',
         name: 'Smoked Trout Pâté',
-        description: 'Horseradish crème fraîche, pickled cucumber, rye crisps',
+        ingredients: [
+          'Smoked trout',
+          'Horseradish crème fraîche',
+          'Pickled cucumber',
+          'Rye crisps',
+        ],
         price: '£9.50',
         allergens: ['Fish', 'Milk', 'Gluten'],
       },
       {
         id: 's3',
         name: 'Charred Asparagus',
-        description: 'Soft egg, brown butter crumbs, lemon zest',
+        ingredients: ['Asparagus', 'Soft egg', 'Brown butter crumbs', 'Lemon zest'],
         price: '£8.00',
         allergens: ['Egg', 'Milk', 'Gluten'],
+      },
+      {
+        id: 's4',
+        name: 'Garden Leaf Salad',
+        ingredients: ['Mixed leaves', 'Apple', 'Walnut oil', 'Cider vinaigrette'],
+        price: '£7.50',
+        allergens: ['Nuts', 'Sulphites'],
       },
     ],
   },
   {
     id: 'mains',
-    title: 'Mains',
+    title: 'Main Course',
     items: [
       {
         id: 'm1',
         name: 'Foresters Grill Steak',
-        description: '28-day dry-aged sirloin, bone marrow butter, watercress',
+        ingredients: [
+          'Dry-aged sirloin',
+          'Bone marrow butter',
+          'Watercress',
+          'House fries',
+        ],
         price: '£28.00',
         allergens: ['Milk'],
       },
       {
         id: 'm2',
         name: 'Herb-Crusted Lamb',
-        description: 'Rosemary jus, crushed new potatoes, seasonal greens',
+        ingredients: [
+          'Lamb rump',
+          'Rosemary jus',
+          'Crushed new potatoes',
+          'Seasonal greens',
+        ],
         price: '£24.50',
         allergens: ['Gluten', 'Sulphites'],
       },
       {
         id: 'm3',
         name: 'Pan-Roasted Sea Bass',
-        description: 'Fennel purée, brown shrimp butter, samphire',
+        ingredients: ['Sea bass', 'Fennel purée', 'Brown shrimp butter', 'Samphire'],
         price: '£22.00',
         allergens: ['Fish', 'Crustaceans', 'Milk'],
       },
       {
         id: 'm4',
         name: 'Forest Mushroom Risotto',
-        description: 'Arborio rice, aged parmesan, truffle oil, chives',
+        ingredients: ['Arborio rice', 'Aged parmesan', 'Truffle oil', 'Chives'],
         price: '£16.50',
+        allergens: ['Milk'],
+      },
+    ],
+  },
+  {
+    id: 'hot-beverages',
+    title: 'Hot Beverages',
+    items: [
+      {
+        id: 'hb1',
+        name: 'Foresters Hot Chocolate',
+        ingredients: ['Dark chocolate', 'Steamed milk', 'Whipped cream'],
+        price: '£4.20',
+        allergens: ['Milk', 'Soya'],
+      },
+      {
+        id: 'hb2',
+        name: 'Spiced Forest Tea',
+        ingredients: ['Black tea', 'Cinnamon', 'Orange peel', 'Honey'],
+        price: '£3.50',
+        allergens: [],
+      },
+      {
+        id: 'hb3',
+        name: 'Flat White',
+        ingredients: ['Espresso', 'Steamed milk'],
+        price: '£3.80',
         allergens: ['Milk'],
       },
     ],
@@ -71,50 +121,27 @@ export const menuCategories: MenuCategory[] = [
       {
         id: 'd1',
         name: 'Dark Chocolate Fondant',
-        description: 'Molten centre, salted caramel ice cream',
+        ingredients: [
+          'Dark chocolate',
+          'Molten centre',
+          'Salted caramel ice cream',
+        ],
         price: '£8.50',
         allergens: ['Egg', 'Milk', 'Gluten', 'Soya'],
       },
       {
         id: 'd2',
         name: 'Apple & Blackberry Crumble',
-        description: 'Oat topping, vanilla custard',
+        ingredients: ['Apple', 'Blackberry', 'Oat topping', 'Vanilla custard'],
         price: '£7.50',
         allergens: ['Gluten', 'Milk'],
       },
       {
         id: 'd3',
         name: 'Honey Panna Cotta',
-        description: 'Local blossom honey, roasted hazelnuts',
+        ingredients: ['Cream', 'Local blossom honey', 'Roasted hazelnuts'],
         price: '£7.00',
         allergens: ['Milk', 'Nuts'],
-      },
-    ],
-  },
-  {
-    id: 'drinks',
-    title: 'Drinks',
-    items: [
-      {
-        id: 'dr1',
-        name: 'House Red / White',
-        description: 'Glass · Bottle available on request',
-        price: '£6.50',
-        allergens: ['Sulphites'],
-      },
-      {
-        id: 'dr2',
-        name: 'Foresters Ale',
-        description: 'Local craft pale ale, citrus finish',
-        price: '£5.20',
-        allergens: ['Gluten'],
-      },
-      {
-        id: 'dr3',
-        name: 'Elderflower Spritz',
-        description: 'Prosecco, elderflower, soda, fresh mint',
-        price: '£7.50',
-        allergens: ['Sulphites'],
       },
     ],
   },

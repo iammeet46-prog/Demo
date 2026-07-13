@@ -31,9 +31,9 @@ export type LogoThemeResponse = {
 export type MenuItem = {
   id: string
   name: string
-  description: string
+  ingredients: string[]
   price: string
-  allergens?: string[]
+  allergens: string[]
 }
 
 export type MenuCategory = {
@@ -41,3 +41,16 @@ export type MenuCategory = {
   title: string
   items: MenuItem[]
 }
+
+export const ALLERGEN_OPTIONS = [
+  'Gluten',
+  'Milk',
+  'Egg',
+  'Fish',
+  'Crustaceans',
+  'Nuts',
+  'Soya',
+  'Sulphites',
+] as const
+
+export type AllergenOption = (typeof ALLERGEN_OPTIONS)[number]

@@ -1,5 +1,5 @@
 import { MenuScreen } from './components/MenuScreen'
-import { menuCategories, restaurantName } from './data/menu'
+import { menuCategories, restaurantName, restaurantTagline } from './data/menu'
 import { themeResponse } from './data/themeResponse'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <MenuScreen
       themeData={themeResponse}
       restaurantName={restaurantName}
+      restaurantTagline={restaurantTagline}
       categories={menuCategories}
     />
   )
